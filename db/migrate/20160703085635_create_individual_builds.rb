@@ -1,6 +1,6 @@
-class CreateIndividualBuild < ActiveRecord::Migration
+class CreateIndividualBuilds < ActiveRecord::Migration
   def change
-    create_table :individual_build do |t|
+    create_table :individual_builds do |t|
       t.string :cpu
       t.string :motherboard
       t.string :memory
