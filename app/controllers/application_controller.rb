@@ -9,6 +9,10 @@ class ApplicationController < Sinatra::Base
       set :session_secret, "AvinashistheKING"
     end
 
+    get '/' do
+      redirect "/signup"
+    end
+
 
 
 
