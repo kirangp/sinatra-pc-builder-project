@@ -1,0 +1,4 @@
+class CompletedBuildController < ApplicationController
+
+
+end

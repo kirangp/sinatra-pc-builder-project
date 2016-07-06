@@ -1,0 +1,7 @@
+<% @systems.each do |system| %>
+  <%= system.cpu %><br />
+  <%= system.motherboard %> <br />
+  <a href="/system/<%=system.id%>/edit">Edit</a>
+  <br />
+  <br />
+<% end %>

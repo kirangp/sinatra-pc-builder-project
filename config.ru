@@ -6,5 +6,7 @@ require './config/environment'
 
 use Rack::MethodOverride
 
+use CompletedBuildController
+use SystemController
 use UserController
 run ApplicationController

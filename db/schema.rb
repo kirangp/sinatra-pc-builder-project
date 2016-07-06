@@ -13,7 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20160703090043) do
 
-  create_table "individual_builds", force: :cascade do |t|
+  create_table "completed_builds", force: :cascade do |t|
+    t.string  "name"
+    t.integer "price"
+    t.integer "user_id"
+  end
+
+  create_table "systems", force: :cascade do |t|
     t.string  "cpu"
     t.string  "motherboard"
     t.string  "memory"
@@ -21,13 +27,7 @@ ActiveRecord::Schema.define(version: 20160703090043) do
     t.string  "videocard"
     t.string  "powersupply"
     t.string  "case"
-    t.integer "pc_build_id"
-  end
-
-  create_table "pc_builds", force: :cascade do |t|
-    t.string  "name"
-    t.integer "price"
-    t.integer "user_id"
+    t.integer "completed_build_id"
   end
 
   create_table "users", force: :cascade do |t|

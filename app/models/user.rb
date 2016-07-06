@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :pc_builds
+  has_many :completed_builds
 end

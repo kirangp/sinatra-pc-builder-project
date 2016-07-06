@@ -1,6 +1,6 @@
-class CreateIndividualBuilds < ActiveRecord::Migration
+class CreateSystem < ActiveRecord::Migration
   def change
-    create_table :individual_builds do |t|
+    create_table :systems do |t|
       t.string :cpu
       t.string :motherboard
       t.string :memory
@@ -8,7 +8,7 @@ class CreateIndividualBuilds < ActiveRecord::Migration
       t.string :videocard
       t.string :powersupply
       t.string :case
-      t.integer :pc_build_id
+      t.integer :completed_build_id
     end
   end
 end
