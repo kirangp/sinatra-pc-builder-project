@@ -1,7 +1,6 @@
 class SessionController < ApplicationController
     get '/login' do
         if !logged_in?
-            @user = User.new
             erb :'sessions/login'
         else
             redirect '/builds'
@@ -14,7 +13,7 @@ class SessionController < ApplicationController
             session[:user_id] = @user.id
             redirect '/builds'
         else
-            redirect to '/signup'
+            erb :'/sessions/erb',  locals: {message: "Invalid email or password! Please try again."}
         end
     end
 

@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
 
     helpers do
         def redirect_if_not_logged_in
-            redirect '/sessions/login' unless logged_in?
+            redirect '/login' unless logged_in?
         end
 
         def logged_in?

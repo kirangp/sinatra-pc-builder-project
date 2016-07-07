@@ -1,7 +1,23 @@
-<h2>PC Builder Signup Page</h2>
-<h3>Create a username and password</h3>
+<div>
+    <h2>PC Builder Signup Page</h2>
+    <h3>Create a username and password</h3>
+
+    <%if !@user.valid? && @user.errors.any?%>
+    <h2>ERROR!</h2>
+    <%@user.errors.full_messages.uniq.each do |msg|%>
+
+    <li>
+        <ul><%=msg%>
+    </ul>
+</li>
+<%end%>
+<%end%>
+
 <form action="/signup" method="POST">
-  <p>Name: <input type="text" name="username"></p>
-  <p>Password: <input type="text" name="password"></p>
-  <input class="btn btn-primary" type="submit">
+    <p>Name:
+        <input type="text" name="username" id="username"></p>
+    <p>Password:
+        <input type="text" name="password" id="password"></p>
+    <input class="btn btn-primary" type="submit">
 </form>
+</div>

@@ -1,6 +1,18 @@
 <h1>Create a new system</h1>
 <div class="row">
 
+  <%if !@system.valid? && @system.errors.any?%>
+  <h2>ERROR!</h2>
+  <%@system.errors.full_messages.uniq.each do |msg|%>
+
+  <li>
+      <ul><%=msg%>
+  </ul>
+  </li>
+  <%end%>
+  <%end%>
+
+
 
 <form action="/systems" method="post" class="col s6">
     <div class="input-field">
