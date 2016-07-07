@@ -1,0 +1,6 @@
+<p> All your PC Builds are listed here, <%= @user.username %>
+<% @user.completed_builds.each do |build| %>
+  <ul>
+    <li><a href="/builds/<%=build.id%>"><%= build.name %></a></li>
+  </ul>
+<% end %>

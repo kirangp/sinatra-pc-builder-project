@@ -1,10 +1,21 @@
 class UserController < ApplicationController
+    get '/users/:id' do
+        redirect '/builds' unless logged_in?
+
+        @user = User.find(params[:id])
+        if !@user.nil? && @user == current_user
+            erb :'users/show'
+        else
+            redirect '/builds'
+        end
+    end
+
     get '/signup' do
-      if !session[:user_id]
-        erb :'users/new'
-      else
-        redirect to '/builds'
-      end
+        if !session[:user_id]
+            erb :'users/new'
+        else
+            redirect to '/builds'
+        end
     end
 
     post '/signup' do
@@ -16,6 +27,4 @@ class UserController < ApplicationController
             redirect to '/builds'
         end
     end
-
-
 end
