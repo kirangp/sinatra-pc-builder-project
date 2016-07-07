@@ -1,0 +1,6 @@
+<% @builds.each do |build| %>
+  <%= build.name %><br />
+  <%= build.price %><br />
+  <a href="/builds/<%=build.id %>/edit">Edit</a>
+  <br />
+<% end  %>

@@ -1,6 +1,12 @@
 <% @systems.each do |system| %>
   <%= system.cpu %><br />
   <%= system.motherboard %> <br />
+  <%= system.memory %> <br />
+  <%= system.storage %> <br />
+  <%= system.videocard %> <br />
+  <%= system.powersupply %> <br />
+  <%= system.case %> <br />
+
   <a href="/system/<%=system.id%>/edit">Edit</a>
   <br />
   <br />
