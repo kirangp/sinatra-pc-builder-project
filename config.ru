@@ -6,6 +6,7 @@ require './config/environment'
 
 use Rack::MethodOverride
 
+use SessionController
 use CompletedBuildController
 use SystemController
 use UserController

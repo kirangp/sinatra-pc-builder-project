@@ -1,6 +1,10 @@
 class UserController < ApplicationController
     get '/signup' do
-        erb :'users/new' unless session[:user_id]
+      if !session[:user_id]
+        erb :'users/new'
+      else
+        redirect to '/builds'
+      end
     end
 
     post '/signup' do
@@ -9,7 +13,7 @@ class UserController < ApplicationController
         else
             @user = User.create(username: params[:username], password: params[:password])
             session[:user_id] = @user.id
-            redirect to '/systems'
+            redirect to '/builds'
         end
     end
 
