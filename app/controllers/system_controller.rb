@@ -7,7 +7,14 @@ class SystemController < ApplicationController
   end
 
   get '/systems/new' do
-  
+    redirect_if_not_logged_in
+    erb :'systems/new'
+  end
+
+  post '/systems' do
+    redirect_if_not_logged_in
+
+
   end
 
 

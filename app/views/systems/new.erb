@@ -1,0 +1,56 @@
+<h1>Create a new system</h1>
+<div class="row">
+
+
+<form action="/systems" method="post" class="col s6">
+    <div class="input-field">
+      <label for="cpu">CPU:
+      </label>
+      <input type="text" name="cpu" id="cpu" /><br />
+    </div>
+
+    <div class="input-field">
+    <label>Motherboard:
+    </label>
+    <input type="text" name="motherboard"/><br/>
+    </div>
+
+    <label>Memory:
+    </label>
+    <input type="text" name="memory"/><br/>
+
+    <label>Storage:
+    </label>
+    <input type="text" name="storage"/><br/>
+
+    <label>Video Card:
+    </label>
+    <input type="text" name="videocard"/><br/>
+
+    <label>Power Supply:
+    </label>
+    <input type="text" name="powersupply"/><br/>
+
+    <label>Case:
+    </label>
+    <input type="text" name="case"/><br/>
+
+
+
+    <div class="col s12">
+      <label>Build name</label><br />
+      <select name="completed_build_id" style="display:block;">
+          <%current_user.completed_builds.each do |build|  %>
+          <option value="" disabled selected>Choose your option</option>
+          <option value=<%= build.id %>> <%= build.name %> </option>
+          <% end  %>
+      </select>
+
+    </div>
+
+    <div >
+
+    <input class="waves-effect waves-light btn-large" type="submit" value="Create"/>
+    </div>
+</form>
+</div>
