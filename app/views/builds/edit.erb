@@ -1,0 +1,11 @@
+<h1>Edit <%= @build.name %></h1>
+
+<form action="/builds/<%=@build.id %>" method="POST">
+  <label> Build Name </label>
+  <input type="text" name="name" value="<%=@build.name %>"> </br>
+
+  <label> Build Price </label>
+  <input type="number" name="price" value="<%=@build.price %>"> </br>
+
+  <input type="submit" value="Update">
+</form>
