@@ -1,43 +1,37 @@
 class CompletedBuildController < ApplicationController
+    get '/builds' do
+        @builds = CompletedBuild.all
+        erb :'builds/index'
+    end
 
-  get '/builds' do
-    @builds = CompletedBuild.all
-    erb :'builds/index'
-  end
+    get '/builds/new' do
+        redirect_if_not_logged_in
+        erb :'builds/new'
+    end
 
-  get "/builds/new" do
-    redirect_if_not_logged_in
+    get '/builds/:id/edit' do
+        redirect_if_not_logged_in
 
-    erb :'builds/new'
-  end
+        @build = CompletedBuild.find(params[:id])
+        erb :'builds/edit'
+    end
 
-  get "/builds/:id/edit" do
-    redirect_if_not_logged_in
+    post '/builds/:id' do
+        redirect_if_not_logged_in
+        @build = CompletedBuild.find(params[:id])
+        @build.update(params.select { |k| k == 'name' || k == 'price' })
+        redirect "/builds/#{@build.id}"
+    end
 
-    @build = CompletedBuild.find(params[:id])
-    erb :'builds/edit'
-  end
+    get '/builds/:id' do
+        redirect_if_not_logged_in
+        @build = CompletedBuild.find(params[:id])
+        erb :'builds/show'
+    end
 
-  post "/builds/:id" do
-    redirect_if_not_logged_in
-    @build = CompletedBuild.find(params[:id])
-
-
-    @build.update(params.select{|k| k=="name" || k=="price"})
-    redirect "/builds/#{@build.id}"
-  end
-
-  get "/builds/:id" do
-    redirect_if_not_logged_in
-    @build = CompletedBuild.find(params[:id])
-    erb :'builds/show'
-  end
-
-  post "/builds" do
-    redirect_if_not_logged_in
-    
-    CompletedBuild.create(params)
-    redirect "/builds"
-  end
-
+    post '/builds' do
+        redirect_if_not_logged_in
+        CompletedBuild.create(params)
+        redirect '/builds'
+    end
 end
