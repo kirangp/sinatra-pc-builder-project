@@ -1,4 +1,6 @@
 <% @systems.each do |system| %>
+<%= @build = CompletedBuild.find(system.completed_build_id) %>
+  <%=@build.name %><br /><br />
   <%= system.cpu %><br />
   <%= system.motherboard %> <br />
   <%= system.memory %> <br />

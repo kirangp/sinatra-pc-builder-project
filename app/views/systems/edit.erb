@@ -38,6 +38,7 @@
     <div class="col s12">
       <label>Build name</label><br />
       <select name="completed_build_id" style="display:block;">
+        
           <%current_user.completed_builds.each do |build|  %>
           <option value=<%= build.id %> <%= "selected" if build.id == @system.completed_build_id%>><%= build.name %> </option>
           <% end  %>

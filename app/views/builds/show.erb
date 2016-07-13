@@ -1,9 +1,9 @@
 <%= @build.name %><br />
   <%= @build.price %> <br />
 
-  <h2>Builds</h2>
+
   <ul>
-  
+
   <% @build.systems.each do |system| %>
     <li><a href="/systems/<%=system.id%>"><%= @build.name %></a></li>
   <% end%>

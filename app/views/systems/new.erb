@@ -47,13 +47,15 @@
     </label>
     <input type="text" name="case"/><br/>
 
-
+<%pry  %>
 
     <div class="col s12">
       <label>Build name</label><br />
       <select name="completed_build_id" style="display:block;">
+        <option value="" disabled selected>Choose your option</option>
           <%current_user.completed_builds.each do |build|  %>
-          <option value="" disabled selected>Choose your option</option>
+
+
           <option value=<%= build.id %>> <%= build.name %> </option>
           <% end  %>
       </select>

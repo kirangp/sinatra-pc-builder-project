@@ -31,7 +31,10 @@ class CompletedBuildController < ApplicationController
 
     post '/builds' do
         redirect_if_not_logged_in
-        CompletedBuild.create(params)
+        @build = CompletedBuild.create(params)
+        @build.user_id = session[:user_id]
+        @build.save
+
         redirect '/builds'
     end
 end
