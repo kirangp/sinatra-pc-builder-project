@@ -17,7 +17,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-  <div class="navbar-fixed">
+  <div class="navbar-fixed indigo accent-3">
+    <!-- Dropdown Structure -->
+    <ul id="systems_dropdown" class="dropdown-content indigo accent-3">
+      <li class="divider "></li>
+      <li><a href="/systems">Systems</a></li>
+      <li><a href="/systems/new">Add a new system</a></li>
+    </ul>
+
+    <ul id="builds_dropdown" class="dropdown-content indigo accent-3">
+      <li class="divider "></li>
+      <li><a href="/builds">Builds</a></li>
+      <li><a href="/builds/new">Add a new Build</a></li>
+    </ul>
+
     <nav>
       <div class="nav-wrapper indigo accent-3">
         <a href="/signup" class="brand-logo center">PC-Builder</i></a>
@@ -27,8 +40,10 @@
           <li><a href="/logout">Logout</a></li>
         </ul>
         <ul class="left hide-on-med-and-down">
-          <li><a href="/builds">Builds</a></li>
-            <li><a href="/systems">Systems</a></li>
+
+          <li><a class="dropdown-button" href="#!" data-activates="builds_dropdown">Build<i class="material-icons right">arrow_drop_down</i></a></li>
+
+            <li><a class="dropdown-button" href="#!" data-activates="systems_dropdown">System<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
 
       </div>
