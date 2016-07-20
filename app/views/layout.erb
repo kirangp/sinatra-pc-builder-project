@@ -35,9 +35,13 @@
       <div class="nav-wrapper indigo accent-3">
         <a href="/signup" class="brand-logo center">PC-Builder</i></a>
         <ul class="right hide-on-med-and-down">
+            <%if !logged_in? %>
             <li><a href="/login">Login</a></li>
+            <%end  %>
 
-          <li><a href="/logout">Logout</a></li>
+            <%if logged_in? %>
+            <li><a href="/logout">Logout</a></li>
+            <%end  %>
         </ul>
         <ul class="left hide-on-med-and-down">
 
