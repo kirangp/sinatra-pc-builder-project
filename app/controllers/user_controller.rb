@@ -24,8 +24,10 @@ class UserController < ApplicationController
             redirect to '/signup'
         else
             @user = User.new(params)
-            session[:user_id] = @user.id
-            redirect to '/builds'
+            if @user.save
+              session[:user_id] = @user.id
+              redirect to '/builds'
+            end
         end
     end
 

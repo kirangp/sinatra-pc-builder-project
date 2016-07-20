@@ -10,10 +10,12 @@
     <%= @system.powersupply %> <br />
     <%= @system.case %> <br />
 
+
+  <%if session[:user_id] == @build.user_id  %>
     <a href="/systems/<%=@system.id%>/edit">Edit</a>
 
     <a href="/systems/<%=@system.id %>/delete">Delete</a>
-
+  <%end %>
 
     <br />
     <br />

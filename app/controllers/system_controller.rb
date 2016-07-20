@@ -18,6 +18,12 @@ class SystemController < ApplicationController
         erb :'systems/edit'
     end
 
+    post '/systems' do
+        redirect_if_not_logged_in
+        System.create(params)
+        redirect '/systems'
+    end
+
     post '/systems/:id' do
         redirect_if_not_logged_in
         @system = System.find(params[:id])
@@ -32,11 +38,7 @@ class SystemController < ApplicationController
         erb :'systems/show'
     end
 
-    post '/systems' do
-        redirect_if_not_logged_in
-        System.create(params)
-        redirect '/systems'
-    end
+
 
     get '/systems/:id/delete' do
       redirect_if_not_logged_in
