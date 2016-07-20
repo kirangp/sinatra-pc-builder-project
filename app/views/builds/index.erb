@@ -1,12 +1,22 @@
+
+<div class="row">
+<h1>Build List</h1>
 <% @builds.each do |build| %>
-  <a href="/systems/<%=build.id %>"><%= build.name %></a><br />
-  <%= build.price %><br />
+<div class="col s6">
 
 
+<ul class="collection ">
+<li class="collection-item avatar">
+      <a href="/systems/<%=build.id %>"><i class="material-icons">play_arrow</i></a>
+      <span class="title">Build name:  <%= build.name %></span>
+      <p>Price = $<%= build.price %><p>
+        
+      <%if session[:user_id] == build.user_id  %>
+      <a href="/builds/<%=build.id %>/edit" class="secondary-content"><i class="material-icons">mode_edit</i></a>
+      <%end%>
+    </li>
+  </ul>
+  </div>
 
-<%if session[:user_id] == build.user_id  %>
-  <a href="/builds/<%=build.id %>/edit">Edit</a>
-  <br />
-  <%end %>
-
-<% end  %>
+<%end%>
+</div>

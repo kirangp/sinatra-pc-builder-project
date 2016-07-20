@@ -1,19 +1,57 @@
-<% @systems.each do |system| %>
-<%= @build = CompletedBuild.find(system.completed_build_id) %>
-  <%=@build.name %><br /><br />
-  <%= system.cpu %><br />
-  <%= system.motherboard %> <br />
-  <%= system.memory %> <br />
-  <%= system.storage %> <br />
-  <%= system.videocard %> <br />
-  <%= system.powersupply %> <br />
-  <%= system.case %> <br />
+<div class="striped">
+    <% @systems.each do |system| %>
+    <%= @build = CompletedBuild.find(system.completed_build_id) %>
+    <h3><%=@build.name %></h3><br/><br/>
+    <table>
+        <thead>
+            <tr>
+                <th data-field="id">Component</th>
+                <th data-field="name">Manufacturer</th>
+            </tr>
+        </thead>
 
-  <%if session[:user_id] == @build.user_id  %>
+        <tbody>
+            <tr>
+                <td>CPU</td>
+                <td><%= system.cpu %></td>
+            </tr>
+            <tr>
+                <td>Motherboard</td>
+                <td><%= system.motherboard %></td>
+            </tr>
+            <tr>
+                <td>Memory</td>
+                <td><%= system.memory %></td>
+            </tr>
+            <tr>
+                <td>Storage</td>
+                <td><%= system.storage %></td>
+            </tr>
+            <tr>
+                <td>Videocard</td>
+                <td><%= system.videocard %></td>
 
-  <a href="/systems/<%=system.id%>/edit">Edit</a><br />
-  <a href="/systems/<%=system.id %>/delete">Delete</a>
-  <%end %>
-  <br />
-  <br />
-<% end %>
+            </tr>
+            <tr>
+                <td>Powersupply</td>
+                <td><%= system.powersupply %></td>
+            </tr>
+            <tr>
+                <td>Case</td>
+                <td><%= system.case %></td>
+            </tr>
+        </tbody>
+    </table>
+    <%if session[:user_id] == @build.user_id  %>
+    <a class="btn-floating btn-large waves-effect waves-light red" href="/systems/<%=system.id%>/edit">
+        <i class="material-icons">mode_edit</i>
+    </a>
+    <a class="btn-floating btn-large waves-effect waves-light red" href="/systems/<%=system.id%>/delete">
+        <i class="material-icons">delete</i>
+    </a>
+    <%end %>
+    <br/>
+    <br/>
+    <%end %>
+
+</div>
