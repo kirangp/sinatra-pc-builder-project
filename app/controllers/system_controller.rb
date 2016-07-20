@@ -37,4 +37,12 @@ class SystemController < ApplicationController
         System.create(params)
         redirect '/systems'
     end
+
+    get '/systems/:id/delete' do
+      redirect_if_not_logged_in
+      @system = System.find(params[:id])
+      @system.destroy
+      redirect "/systems"
+
+    end
 end

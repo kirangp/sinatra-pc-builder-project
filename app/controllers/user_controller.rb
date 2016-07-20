@@ -28,4 +28,6 @@ class UserController < ApplicationController
             redirect to '/builds'
         end
     end
+
+
 end
