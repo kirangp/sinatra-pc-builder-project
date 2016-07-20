@@ -3,7 +3,7 @@
     <h3>Create a username and password</h3>
 
     <%if !@user.valid? && @user.errors.any?%>
-    <h2>ERROR!</h2>
+    <h4>ERROR!</h4>
     <%@user.errors.full_messages.uniq.each do |msg|%>
 
     <li>
@@ -14,10 +14,10 @@
 <%end%>
 
 <form action="/signup" method="POST">
-    <p>Name:
+    <p>Username:
         <input type="text" name="username" id="username"></p>
     <p>Password:
-        <input type="text" name="password" id="password"></p>
-    <input class="btn btn-primary" type="submit">
+        <input type="password" name="password" id="password"></p>
+    <input class="btn btn-primary" type="submit" value="Signup">
 </form>
 </div>
