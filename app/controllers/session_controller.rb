@@ -1,4 +1,6 @@
+
 class SessionController < ApplicationController
+  use Rack::Flash
     get '/login' do
         if !logged_in?
             erb :'sessions/login'
@@ -13,7 +15,8 @@ class SessionController < ApplicationController
             session[:user_id] = @user.id
             redirect '/builds'
         else
-            erb :'/sessions/erb',  locals: {message: "Invalid email or password! Please try again."}
+            flash[:error] = "Username or password incorrect"
+            erb :'/sessions/login'
         end
     end
 
