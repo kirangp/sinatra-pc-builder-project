@@ -9,7 +9,7 @@
   <% end%>
   </ul>
 
-  <%if session[:user_id] == @build.user_id  %>    
+  <%if session[:user_id] == @build.user_id  %>
   <a href="/builds/<%=@build.id%>/edit">Edit</a>
     <%end %>
   <br />
