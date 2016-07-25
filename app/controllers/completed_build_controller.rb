@@ -1,6 +1,8 @@
 class CompletedBuildController < ApplicationController
     get '/builds' do
         @builds = CompletedBuild.all
+        # To get the current_user's builds
+        @build = current_user.completed_builds
         erb :'builds/index'
     end
 
